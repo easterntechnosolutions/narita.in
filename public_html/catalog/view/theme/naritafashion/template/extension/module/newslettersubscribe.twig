@@ -1,0 +1,92 @@
+<section class="block_newsletter footer-block col-lg-3 col-md-3 col-sm-12 col-xs-12">
+	<div class="footer-title clearfix  hidden-lg hidden-md collapsed" data-target="#boxes" data-toggle="collapse">
+    <span class="h3">{{ heading }}</span>
+    <span class="navbar-toggler collapse-icons">
+      <i class="fa fa-angle-down add"></i>
+      <i class="fa fa-angle-up remove"></i>
+    </span>
+  </div>
+		<div id="boxes" class="collapse footer-dropdown">
+					<div class="section-header">
+						<h5 class="hidden-sm hidden-xs">{{ heading }}</h5>
+						<p class="sub-title">Be the first to know about our new arrivals and exclusive offers.</p>
+					</div>
+					<div style="" id="dialog" class="window">
+						<div class="box">
+							<div id="newsletter-container" class="box-content">
+								<div id="newsletter">
+									<div id="frm_subscribe" class="newsletter_form">
+										<form name="subscribe" id="subscribe">
+											<input type="text" class="text-email" placeholder="{{ entry_email }}" value="" name="subscribe_email" id="subscribe_email">
+											<input type="hidden" class="text-email" placeholder="{{ entry_email }}" value="" name="subscribe_username" id="subscribe_username" />
+											<div id="notification-normal"></div>
+											<a class="button btn-submit" onclick="email_subscribe()"><span>{{ entry_button  }}</span>
+											</a>
+											
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>	
+		</div>
+	<script type="text/javascript">
+		function email_subscribe(){
+			$.ajax({
+					type: 'post',
+					url: 'index.php?route=extension/module/newslettersubscribe/subscribe',
+					dataType: 'html',
+					data:$("#subscribe").serialize(),
+					success: function (html) {
+					try {
+					
+						eval(html);
+					
+					} catch (e) {
+					}
+						
+					}});	
+		}
+		function email_unsubscribe(){
+			$.ajax({
+					type: 'post',
+					url: 'index.php?route=extension/module/newslettersubscribe/unsubscribe',
+					dataType: 'html',
+					data:$("#subscribe").serialize(),
+					success: function (html) {
+							try {
+							
+								eval(html);
+							
+							} catch (e) {
+							}
+					}}); 
+			$('html, body').delay( 1500 ).animate({ scrollTop: 0 }, 'slow'); 
+		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#subscribe_email').keypress(function(e) {
+				if(e.which == 13) {
+					e.preventDefault();
+					email_subscribe();
+				}
+				var name= $(this).val();
+				$('#subscribe_username').val(username);
+			});
+			$('#subscribe_email').change(function() {
+			var name= $(this).val();
+					$('#subscribe_username').val(username);
+			});
+		
+		});
+	</script>
+	<style>
+	    .block_newsletter #newsletter-container .newsletter_form .text-email {
+	        text-transform: unset;
+	    }
+	    .block_newsletter .alert-danger, .block_newsletter .alert-success {
+	        margin: 6px 0 0;
+	    }
+	</style>
+</section>

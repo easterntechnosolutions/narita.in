@@ -1,0 +1,108 @@
+{{ header }}
+<div id="product-search" class="container wrapper_container">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6 column_left' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9 column_center' %}
+    {% else %}
+    {% set class = 'col-sm-12 column_full' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      {% if products %}
+      <div class="product-list-top">
+        <div class="row">
+          <div class="pagination-right">
+                <div class="dropdown">
+                  <div class="col-md-2 text-right sort-by dropdown-toggle" id="dropdownMenuButton">
+                    <label class="control-label "  for="input-sort" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ text_sort }}</label>
+                  </div>
+                  <div class="col-md-3 text-right sort dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="" >
+                      <div id="input-sort" onchange="location = this.value;">
+                        {% for sorts in sorts %}
+                        {% if sorts.value == '%s-%s'|format(sort, order) %}
+                        <a href="{{ sorts.href }}" class="dropdown-item">{{sorts.text }}</a>
+                        {% else %}  
+                        <a href="{{ sorts.href }}" class="dropdown-item">{{ sorts.text }}</a>   
+                        {% endif %}
+                        {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+        </div>
+      </div>
+      <div class="row product-list-js"> {% for product in products %}
+        <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-6">
+          <div class="product-thumb">
+            <div class="product-container">
+              <div class="image" data-countdowntime="{{ product.date_end }}">
+                <a href="{{ product.href }}">
+                  <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                  {% if product.extra != '' %}
+                    <img class="product-img-extra img-responsive" alt="{{ product.name }}" title="{{ product.name }}" src= "{{ product.extra }}"/>
+                  {% endif %}
+                </a>    
+                {% if product.stock_status %}<span class="outstock-overlay">{{ product.stock_status }}</span>{% endif %}  
+              </div>
+              <div class="product-description"> 
+                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4> 
+                 {% if product.price %}
+                  <p class="price">
+                    {% if not product.special %}
+                    {{ product.price }}
+                    {% else %}
+                    <span class="price-new">{{ product.special }}</span><span class="price-old">{{ product.price }}</span>  
+                    {% endif %}
+                    {% if product.tax %}
+                    <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                    {% endif %}
+                  </p>
+                  {% endif %} 
+                  {% set product_size_options_length = product.product_size_options|length %}
+                    {% if product_size_options_length %}
+                      <div class="size-details">
+                        <div class="size-title">Size Available:</div>
+                        <div class="size">
+                          {% for option in product.product_size_options %}
+                            <span> {{option.name}}</span>
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {% endif %} 
+                  <div class="rating">
+                      <div class="product-rating">
+                        {{product.rating}}
+                      </div>
+                      <span class="fa fa-stack">
+                          <i class="fa fa-star fa-stack-2x {% if product.rating  > 0.0%} yellow {% else %} grey {% endif %}"></i>
+                      </span>
+                      <div class="total-review">
+                        ({{product.reviews}} Reviews)
+                      </div>
+                  </div> 
+                <p class="description">{{ product.description }}</p>
+              </div>
+              {% if product.stock_status %}<span class="outstock-overlay"></span>{% endif %} 
+            </div> 
+          </div>
+        </div>
+        {% endfor %} 
+      </div>
+      <div class="category-pagination">
+        <div class="row">
+          <div class="col-sm-12 col-xs-12 text-center">{{ pagination }}</div>
+        </div>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {% endif %}
+      {{ content_middle }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}

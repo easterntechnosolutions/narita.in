@@ -1,0 +1,29 @@
+<section class="productservicesblock clearfix">
+    <div class="productservices-inner">
+        <div class="productservices">
+            <div class="productservices-banner col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="image-inner">
+                    <img src="{{ bgimage }}" alt="productservices-img" />
+                </div>
+                <div class="productservices-banner-data">
+                    <div class="title">{{ heading }}</div>
+                    <div class="subtitle">{{ subtitle }}</div>
+                </div>
+            </div>
+            <div class="productservices-inner grid-container col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                {% for ishiservice in ishiservices %}
+                    <div class="productsservices">
+                            <a href="#">
+                                <div class="productservice-img" style="background-image: url({{ ishiservice.image }});">
+                                </div>
+                                <div class="productservice-block">
+                                    <div class="productservice-title">{{ ishiservice.title }}</div>
+                                    <div class="productservice-desc">{{ ishiservice.desc }}</div>
+                                </div>
+                            </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

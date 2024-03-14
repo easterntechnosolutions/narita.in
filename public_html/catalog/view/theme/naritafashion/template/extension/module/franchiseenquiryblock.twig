@@ -1,0 +1,116 @@
+<section class="block_newsletter footer-block">
+	<div class="franchise">
+    <div class="franchise-content row">
+        <div class="franchise-image col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          	<img src="{{ banner1 }}" alt="banner1" class="img-responsive">
+        </div>
+        <div class="franchise-desc col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        	<p class="sub-title">{{ subtitle }}</p>
+            <div class="franchise-form">
+                <div class="franchise-title">{{ heading }}</div>
+                <div class="franchise-subtitle">{{ note }}</div>
+            </div>
+			<div id="franchise">
+				<div id="frm_subscribe" class="franchise-form">
+					<form name="subscribe" id="subscribe">
+						<input type="text" class="text-email col-lg-6 col-md-6 m-r" placeholder="{{ entry_firstname }}" value="" name="username" id="username">
+						<input type="text" class="text-email col-lg-6 col-md-6" placeholder="{{ entry_lastname }}" value="" name="username" id="username">
+						<input type="text" class="text-email col-lg-6 col-md-6 m-r" placeholder="{{ entry_email }}" value="" name="subscribe_email" id="subscribe_email">
+						<input type="phoneNumber" class="number col-lg-6 col-md-6" placeholder="{{ entry_phonenumber }}" value="" name="phonenumber" id="phonenumber">
+						<input type="text" class="text-email col-lg-6 col-md-6 m-r" placeholder="{{ entry_natureofbusiness }}" value="" name="nature_of_business" id="nature_of_business">
+						<input type="text" class="text-email col-lg-6 col-md-6" placeholder="{{ entry_city }}" value="" name="city" id="city">
+						<div id="notification-normal"></div>
+					</form>
+					<a class="button btn-default" onclick="email_subscribe()">{{ entry_button }}</a>
+				</div>
+			</div>
+        </div>
+    </div>
+</div>
+	<script type="text/javascript">
+		function email_subscribe(){
+			$.ajax({
+					type: 'post',
+					url: 'index.php?route=extension/module/franchiseenquiryblock/subscribe',
+					dataType: 'html',
+					data:$("#subscribe").serialize(),
+					success: function (html) {
+					try {
+					
+						eval(html);
+					
+					} catch (e) {
+					}
+						
+					}});	
+		}
+		function email_unsubscribe(){
+			$.ajax({
+					type: 'post',
+					url: 'index.php?route=extension/module/newslettersubscribe/unsubscribe',
+					dataType: 'html',
+					data:$("#subscribe").serialize(),
+					success: function (html) {
+							try {
+							
+								eval(html);
+							
+							} catch (e) {
+							}
+					}}); 
+			$('html, body').delay( 1500 ).animate({ scrollTop: 0 }, 'slow'); 
+		}
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#subscribe_email').keypress(function(e) {
+				if(e.which == 13) {
+					e.preventDefault();
+					email_subscribe();
+				}
+				var name= $(this).val();
+				$('#subscribe_name').val(name);
+			});
+			$('#subscribe_email').change(function() {
+			var name= $(this).val();
+					$('#subscribe_name').val(name);
+			});
+		
+		});
+		$(document).ready(function() {
+			$('#username').keypress(function(e) {
+				if(e.which == 13) {
+					e.preventDefault();
+					email_subscribe();
+				}
+				var name= $(this).val();
+				$('#username').val(name);
+			});
+			$('#username').change(function() {
+			var name= $(this).val();
+					$('#username').val(name);
+			});
+		
+		});
+	</script>
+</section>
+<!-- <div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 franchise-inner">
+	    <input type="text" id="fname" name="fname" placeholder="First Name">
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 franchise-inner">
+	    <input type="text" id="lname" name="lname" placeholder="Last Name">
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 franchise-inner">
+	    <input type="email" id="email" name="email" placeholder="Email">
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 franchise-inner">
+	    <input type="text" id="pnum" name="pnum" placeholder="Phone Number">
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 franchise-inner">
+	    <input type="text" id="nature" name="nature" placeholder="Exisiting Nature of Business">
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 franchise-inner">
+	    <input type="text" id="city" name="city" placeholder="City">
+	</div>
+</div> -->

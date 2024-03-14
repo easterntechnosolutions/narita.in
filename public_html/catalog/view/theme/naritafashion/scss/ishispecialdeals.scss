@@ -1,0 +1,161 @@
+.ishidealscategory{
+	position: relative;
+	overflow: hidden;
+	border:1px solid #f5f5f5;
+	padding: 15px 0 0;
+	@media (max-width: 991px) {
+		padding: 15px 0;
+	}
+	.product-thumb{
+		padding:0;
+		border:0;
+	}
+	@media (max-width: 543px) {
+		border:0;
+	}
+}
+.section-left,.section-right{
+	.owl-carousel{
+		.owl-nav{
+			@media screen and (min-width: 1200px) and (max-width: 1399px) {
+				position: unset;
+			}
+		}
+	}
+	@media (max-width: 543px) {
+		padding:0;
+	}
+}
+.section-center{
+	@media (max-width: 543px) {
+		padding:0;
+	}	
+}
+.ishispecialdeals {
+	background-color: #f8f8f8;
+	padding: 40px 0;
+	@media (max-width: 1199px) {
+		margin-bottom: 30px;
+	}
+	@media (max-width: 991px) {
+		margin-top: 30px;
+	}
+	@media (max-width: 543px) {
+		padding:40px 0 30px;
+	}
+	.box_productblock{
+		padding: 15px 0;
+	}
+	.home-title{
+		font-size: 30px;
+		line-height: 24px;
+		text-align: center;
+		margin-bottom: 20px;
+		padding: 0;
+		border: none;
+	}
+	.product-thumb {
+		padding: 0;
+		border:0;
+		@media (max-width: 543px) {
+			margin: 0 auto;
+			text-align:center;
+		}
+		.rating{
+			position: unset;
+			text-align: center;
+			margin-bottom: 10px;
+		}
+		.button-group{
+			.btn-quickview,.btn-cart,.btn-wishlist,.btn-compare{
+				.quickbox, button {
+					.icon{
+						width: 35px;
+          				height: 35px;
+					}
+				}
+			}
+		}
+		.image{
+			display: inline-block;
+		}
+		.caption {
+			text-align: center;
+			padding: 10px 0;
+			h4{
+				a{
+					font-size: 18px;
+					color: $brand-primary;
+				}
+			}
+			.description {
+				display: block;
+				color: #999;
+				font-size: 13px;
+				font-family: $primary-font;
+				font-weight: 400;
+				line-height: 18px;
+				width: 85%;
+				margin: 0 auto 15px;
+			}
+			.price{
+				font-size: 18px;
+				font-weight: 700;
+				margin-bottom: 25px;
+				.price-old{
+					font-size: 16px;
+					font-weight: 500;
+				}
+			}
+			.countdown-container{
+				display: inline-block;
+				position: relative;
+				-webkit-transition: all .5s;
+				-moz-transition: all .5s;
+				-o-transition: all .5s;
+				transition: all .5s;
+				margin-bottom: 19px;
+				opacity: 1;
+				background: transparent;
+				box-shadow: none;
+				padding: 0;
+				@media (max-width: 543px) {
+					margin-bottom: 15px;
+				}
+				.counter{
+					display: inline-block;
+					vertical-align: middle;
+					background-color: $light-color;
+					width: 60px;
+					height: 60px;
+					padding: 10px 5px;
+					margin: 0 3px;
+					.data{
+						font-size: 24px;
+						letter-spacing: 0;
+						font-weight: 500;
+						margin-bottom: 0px;
+						line-height: 22px;
+						color: black;
+						width: auto;
+						height: auto;
+						position: relative;
+						font-family: $primary-font;
+						@media (max-width: 1199px) {
+							font-size: 20px;
+						}
+					}
+					.lbl{
+						font-size: 14px;
+						font-weight: 400;
+						color: $black-color;
+					}
+				}
+			}
+		}
+	}
+	.owl-nav {
+		position: unset;
+		margin-top: 15px;
+	}
+}

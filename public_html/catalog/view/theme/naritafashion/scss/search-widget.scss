@@ -1,0 +1,300 @@
+#_desktop_seach_widget {
+  @media (min-width: 992px) {/* If media is above 1199 */
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    text-align: center;
+  }
+  @media (min-width: 1200px) {
+    width: 62%;
+  }
+  @media (max-width: 1199px) {
+    width: 50%;
+  }
+  @media (max-width: 991px) {/* If media is below 992 */
+    display: none;
+  }
+}
+.search-widget { 
+  cursor: pointer;
+  position: relative;
+  @media (max-width: 991px) {/* If media is below 992 */
+    padding: 0;
+    float: right;
+    position: relative;
+  }
+  .search-logo{
+    display: none;
+    @media (max-width: 991px) {/* If media is below 992 */
+      width: 40px;
+      display: block;
+      height: 40px;
+      display:block;
+      fill: $icon-color;
+    }
+    @media (max-width: 991px) {/* If media is below 992 */
+      fill: $icon-responsivecolor;
+    }
+  }
+  .searchboxform {
+    display:none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    &:after {
+        content: '\F107';
+        position: absolute;
+        right: 13px;
+        top: 20px;
+        z-index: 333;
+        font-family: FontAwesome;
+        width: 20px;
+        height: 20px;
+        color: $header-text-color;
+        line-height: 9px;
+        @media (max-width: 1400px) {
+          right: 3px;
+        }
+        @media (max-width: 991px) {
+          display: none;
+        }
+    }
+    .ishicategory-select {
+      border: 0;
+      height: 45px;
+      padding: 9px 12px;
+      font-weight: 400;
+      font-size: 12px;
+      width: 100%;
+      z-index: 222;
+      background: $light-color;
+      color: $header-text-color;
+      cursor: pointer;
+      outline: none;
+      text-align: center;
+      border-radius: 100px 0 0 100px;
+      font-family: $primary-font;
+      border: 1px solid #eeeeee;
+      position: relative;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      @media (max-width: 1400px) {
+        padding: 9px 16px;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  form {
+    @media (max-width: 991px) {/* If media is below 992 */
+      top: 45px;
+      z-index: 2;
+      position: absolute;
+      left: 0;
+      right: auto;
+      display: none;
+    }
+    display: block;
+    z-index: 2;
+    position: relative;
+    background-color: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    float: none;
+    text-align: center;
+    input[type="text"] { 
+      min-width: 100px;
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #000000;
+      padding: 5px 0;
+      padding-right: 35px;
+      margin: 0;
+      height: 30px;
+      background: $light-color;
+      text-transform: capitalize;
+      font-size: 13px;
+      font-weight: 400;
+      border-radius: 0;
+      letter-spacing: 0.8px;
+      color: #9c9c9c; 
+      @media (max-width: 991px) {/* If media is below 992 */
+        min-width: 320px;
+        height: 40px; 
+        padding-left: 10px;
+        padding-right: 45px;
+        border: 1px solid #eeeeee;
+      }
+      &:focus{
+        background: $light-color;
+      }
+      &::placeholder{
+        color: #9c9c9c;
+      }
+      @media (max-width: 543px) {/* If media is below 544 */
+        min-width: 225px;
+        font-size: 12px;
+      }
+    }
+    button {
+      position: absolute;
+      background: transparent;
+      border: 0;
+      right: 0;
+      top: 0;
+      fill: #363636;
+      padding: 0;
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+      letter-spacing: 0.4px;
+      z-index: 11;
+      border-radius: 100px;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -o-transition: all 0.5s;
+      transition: all 0.5s;
+      @media (max-width: 991px) {
+        padding: 0 25px;
+        line-height: 39px;
+      }
+      i{
+        color: #363636;
+        transform: rotateY(180deg);
+      }
+      &:hover {
+        color: $btn-secondary-text-color;
+        fill: $brand-secondary;
+      }
+      &:focus {
+        color: $btn-secondary-text-color;
+      }
+      &:last-child {
+        > .btn, .btn-group {
+          margin-left: 0;
+        }
+      }
+      i{
+        &:before{
+          font-size: 16px;
+          line-height: 28px;
+        }
+      }
+    }
+  }
+}
+#checkout {
+  #search_widget {
+    display: none; /* Not ideal solution by allows to reuse same hooks/templates */
+  }
+}
+#pagenotfound {
+  .page-content {
+    #search_widget {
+      width: 100%;
+    }
+  }
+}
+.page-not-found {
+  #_desktop_seach_widget {
+    float: none;
+    padding: 0;
+    position: unset;
+  }
+  .search-widget {
+    position: relative;
+    padding: 0;
+    .search-logo {
+        display: none;
+    }
+    form {
+      display: inline-block;
+      top: 0;
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+.ajaxishi-search {
+  position: absolute;
+  top: 41px;
+  left: 0;
+  right: 0;
+  height: auto;
+  max-height: 368px;
+  overflow-y: scroll;
+  scrollbar-width: thin;  
+  background: #ffffff;
+  box-shadow: 0 0px 2px 0px rgba(0, 0, 0, .1);
+  @media (max-width: 991px) {
+    top: 40px;
+  }
+  ul {
+    margin: 0;
+    li {
+      text-decoration: none;
+      list-style: none;
+      &:last-child {
+        > div {
+          border-bottom: 0;
+        }
+      }
+      > div {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+        a {
+          display: block;
+          position: relative;
+          overflow: hidden;
+        }
+        .product-image {
+          float: left;
+          margin-right: 12px;
+          border: 1px solid #eee;
+        }   
+        .product-desc {
+          text-align: left;
+          .product-name {
+            margin-bottom: 5px;
+            color: $brand-primary;
+          }
+          .product-price {
+            .special {
+              color:#888;
+              text-decoration: line-through;
+              display: inline-block;
+              vertical-align: middle;
+              margin-right: 8px;
+            }
+            .price {
+              color: $brand-primary;
+              display: inline-block;
+              vertical-align: middle;
+            }
+          }
+        }
+      }
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #cdcdcd;
+    border: 1px solid #f0f0f0;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+}

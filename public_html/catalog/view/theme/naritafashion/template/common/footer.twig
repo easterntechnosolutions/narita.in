@@ -1,0 +1,96 @@
+<div id="_mobile_column_left" class="container"></div>
+<div id="_mobile_column_right" class="container"></div>
+<footer id="footer" class="{{ ishome }}">
+<div class="footer-container"> 
+  <div class="container">
+    <div class="row">
+        <div class="ishistoreinfoblock col-lg-3 col-md-3 col-sm-12">
+          <h5 class="hidden-sm hidden-xs">{{ text_storeinformation }}</h5>
+          <div id="ishistoreinfo-container" class="ishistoreinfo-inner">
+            <div class="store-description">
+              <p>{{ storecomment }}</p>
+            </div>
+          </div>
+          {{ footerbefore }}
+        </div>
+        <div id="_mobile_block-contact" class="block-contact clearfix"></div>
+        <section class="extras col-lg-3 col-md-3 col-sm-12 footer-block">
+              <h5 class="hidden-sm hidden-xs">{{ text_extra }}</h5>
+              <div class="footer-title clearfix  hidden-lg hidden-md collapsed" data-target="#extras-container" data-toggle="collapse">
+                <span class="h3">{{ text_extra }}</span>
+                <span class="navbar-toggler collapse-icons">
+                  <i class="fa fa-angle-down add"></i>
+                  <i class="fa fa-angle-up remove"></i>
+                </span>
+              </div>
+              <div id="extras-container" class="collapse footer-dropdown">
+                <ul class="list-unstyled">
+                  {% if informations %}  
+                       {% for information in informations %}
+                          <li><a href="{{ information.href }}">{{ information.title }}</a></li>
+                        {% endfor %}
+                  {% endif %}
+                  <li><a href="{{ contact }}">{{ text_contact }}</a></li>
+                </ul>
+              </div>
+            </section>
+            <!-- <section class="account col-lg-2 col-md-2 col-sm-12 footer-block">
+              <h5 class="hidden-sm hidden-xs">{{ text_account }}</h5>
+              <div class="footer-title clearfix  hidden-lg hidden-md collapsed" data-target="#account-container" data-toggle="collapse">
+                <span class="h3">{{ text_account }}</span>
+                <span class="navbar-toggler collapse-icons">
+                  <i class="fa fa-angle-down add"></i>
+                  <i class="fa fa-angle-up remove"></i>
+                </span>
+              </div>
+              <div id="account-container" class="collapse footer-dropdown">
+                <ul class="list-unstyled">
+                  <li><a href="{{ account }}">{{ text_account }}</a></li>
+                  <li><a href="{{ order }}">{{ text_order }}</a></li>
+                  <li><a href="{{ wishlist }}">{{ text_wishlist }}</a></li>
+                  <li><a href="{{ newsletter }}">{{ text_newsletter }}</a></li>
+                  <li><a href="{{ sitemap }}">{{ text_sitemap }}</a></li>
+                  <li><a href="{{ manufacturer }}">{{ text_manufacturer }}</a></li>
+                  <li><a href="{{ voucher }}">{{ text_voucher }}</a></li>
+                  <li><a href="{{ affiliate }}">{{ text_affiliate }}</a></li>
+                  <li><a href="{{ special }}">{{ text_special }}</a></li>
+                </ul>
+              </div>
+            </section> -->
+          {{footermiddle}}
+        
+    </div>      
+  </div>
+</div>
+<div class="footer-middle">
+  <div class="container">
+    {{ footerafter }}
+  </div>
+</div>
+<div class="footer-after">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <p class="footer-aftertext">{{ powered }}</p>
+      </div>
+      <div class="col-lg-6 col-md-6 col-xs-12">
+        <div class="footertext">
+          <p>{{ text_footerblock }}</p>
+        </div>
+      </div>  
+    </div>  
+  </div>
+</div>
+<a id="slidetop" href="#" ></a>
+</footer>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body>
+
+</html>

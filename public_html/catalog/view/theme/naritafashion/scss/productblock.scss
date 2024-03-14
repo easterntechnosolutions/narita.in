@@ -1,0 +1,345 @@
+/* Ishi ProductBlock */
+.productsblock {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  .section-header{
+    margin-bottom: 0;
+  }
+  .container{
+    @media (max-width: 543px) {
+      padding: 0 5px;
+    }
+  }
+  .productstab{
+    border: none;
+    margin: 0 0 10px;
+    text-align: center;
+    .nav-item{
+      @media (max-width: 543px) {
+        margin: 0 2px;
+      }
+      @media (max-width: 420px) {/* If media is below 544 */
+        display: block;
+        margin-bottom: 0;
+        text-align: center;
+      }
+      display: inline-block;
+      vertical-align:middle;
+      float: none;
+      &:last-child {
+        @media (max-width: 420px) {/* If media is below 544 */
+          margin-bottom: 0px;
+        }
+      }
+      @media (max-width: 420px) {/* If media is below 544 */
+        font-size: 14px;
+        display:inline-block;
+      } 
+      .nav-link{
+        @media (max-width: 767px) {/* If media is below 768 */
+          padding: 8px 14px;
+        }
+        background: transparent;
+        border: medium none;
+        display: inline-block;
+        border: 0;
+        border-bottom:2px solid transparent;
+        color: $black-color;
+        font-weight: 400;
+        font-size: 15px;
+        margin: 0;
+        outline: medium none;
+        text-transform: capitalize;
+        padding: 12px 15px;
+        border-radius: 0;
+        position: relative;
+        transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+        text-transform: capitalize;
+        @media (max-width: 543px) {
+          border:0;
+          padding:8px 4px;
+          font-size:14px;
+        }
+        @media (max-width: 420px) {
+          padding:4px;
+        }
+      }
+      &.active {
+        .nav-link {
+          color: $brand-secondary;
+          &:before{
+            opacity: 1;
+          }
+          &:after{
+            background: $brand-secondary;
+          }
+        }
+      }
+    }
+  }
+  .owl-dots{
+    position: absolute;
+    right: 1%;
+    top: -6%;
+    @media (max-width: 767px) {
+      text-align: center;
+      margin: 0 auto;
+      position: unset;
+    }
+    @media (max-width: 543px) {
+      margin: 10px auto 0;
+    }
+  }
+
+  &.featuredcategoryblock {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    .home-title{
+      margin: 0 0 15px;
+    }
+    .product-inner{
+      @media (max-width: 543px) {
+        border: 0;
+        border-radius: 0;
+      }
+    }
+    .multilevel-item{
+        .product-thumb{
+          &:last-child{
+            padding-bottom:0;
+          }
+        }
+    }
+    .product-thumb{
+        @media (max-width: 543px) {
+          overflow:hidden;
+        }
+        &:last-child {
+          @media (max-width: 1199px) {
+            padding-bottom: 15px !important;
+          }
+          @media (max-width: 543px) {
+            padding-bottom: 5px !important;
+          }
+        }
+        .price{
+          @media (max-width: 767px) {
+            margin-bottom: 11px;
+          }
+        }
+        .caption{
+          width: 55%;
+          text-align: left;
+          padding-right: 0;
+          @media (max-width: 991px) {
+            width: 100%;
+            padding: 10px 0 20px;
+            text-align: center;
+          }
+          @media (max-width: 543px) {
+            padding:10px 0 0;
+          }
+          .description{
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #777;
+            @media (max-width: 543px) {
+              display: none;
+            }
+          }
+        }
+      }
+    .subtitle {
+      background: $brand-secondary;
+      color: $light-color;
+      padding: 17px 25px;
+      font-size: 18px;
+      line-height: 18px;
+      font-weight: 600;
+      text-align: left;
+      display: block;
+      margin: 0;
+      font-family: $primary-font;
+      border-radius: 15px 0 0 0;
+
+      @media (max-width: 1199px) {
+        /* If media is below 1200 */
+        padding: 22px 25px;
+        border-radius:15px 15px 0px 0px;
+      }
+
+      @media (max-width: 991px) {
+        /* If media is below 992 */
+        font-size: 16px;
+        padding: 15px 20px;
+      }
+    }
+    .grid-container{
+      display: grid;
+      grid-template-columns: auto auto auto;
+      gap: 30px;
+    }
+    .featuredcategorytab {
+      margin-bottom: 15px;
+      @media (max-width: 767px) {
+        /* iIf media is below 768 */
+        margin-bottom: 15px;
+      }
+      @media (max-width: 543px) {
+        padding:0 10px;
+      }
+
+       .block_content{
+          position: relative;
+
+       }
+      ul {
+        margin: 0;
+        .nav-item {
+          &:last-child {
+            border-bottom: 0;
+          }
+
+          &.active {
+            .nav-link {
+              color: #ff406e;
+              font-weight: 600;
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+
+          .nav-link {
+            @media (max-width: 1199px) {
+              /* If media is below 1200 */
+              padding: 21px 8px;
+            }
+
+            @media (max-width: 991px) {
+              /* If media is below 992 */
+              padding: 16px 8px;
+            }
+
+            color: $black-color;
+            background: transparent;
+            display: block;
+            cursor: pointer;
+            position: relative;
+            border: 0;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: $primary-font;
+            line-height: 1.1;
+            text-transform: capitalize;
+            transition: all 400ms ease-in-out 0s;
+            -webkit-transition: all 400ms ease-in-out 0s;
+            -moz-transition: all 400ms ease-in-out 0s;
+            -o-transition: all 400ms ease-in-out 0s;
+
+            &:after {
+              content: '';
+              height: 8px;
+              width: 8px;
+              border-radius: 50%;
+              background: $brand-secondary;
+              position: absolute;
+              top: 43%;
+              left: 0;
+              opacity: 0;
+              transition: all 400ms ease-in-out 0s;
+              -webkit-transition: all 400ms ease-in-out 0s;
+              -moz-transition: all 400ms ease-in-out 0s;
+              -o-transition: all 400ms ease-in-out 0s;
+            }
+
+            &:hover {
+              color: #ff406e;
+              &:after {
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      display: block;
+      position: relative;
+      @media (max-width: 543px) {
+        padding: 0 10px;
+      }
+      .product-thumb {
+        @media (max-width: 543px) {
+          /* If media is below 544 */
+          max-width: 370px;
+          margin: auto;
+          padding: 5px 5px;
+        }
+        margin-bottom: 1px;
+        .product-description{
+          padding: 15px 0 0;
+        }
+        .item{
+          display: flex;
+          align-items: center;
+          @media (max-width: 991px) {
+            display: block;
+          }
+        }
+        .image{
+          img{
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .owl-nav {
+      @media (min-width: 768px) {
+        opacity: 0;
+      }
+      @media (max-width: 767px) {
+        margin-bottom:15px;
+      }
+      @media (max-width: 543px) {
+        margin-top:5px;
+        margin-bottom:0;
+      }
+      .owl-prev,
+      .owl-next {
+        position: absolute;
+        left: -30px;
+        right: auto;
+        top: 47%;
+        margin: 0;
+        @media (max-width: 1199px) {
+          left: 0;
+        }
+        @media (max-width: 767px) {
+          position:unset;
+          margin:3px;
+        }
+
+      }
+
+      .owl-next {
+        left: auto;
+        right: 0;
+      }
+    }
+    &:hover{
+      .owl-nav {
+        opacity: 1;
+      }
+    }
+  }
+}

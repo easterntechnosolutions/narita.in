@@ -1,0 +1,176 @@
+.ishitestimonials {
+  display: block;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+    .user-details{
+      overflow: hidden;
+      background-color: $light-color;
+      padding: 40px 20px 50px;
+      margin-top: 45px;
+      margin-bottom: 20px;
+      box-shadow: 3px 3px 3.88px 0.12px rgba(0, 0, 0, 0.05); 
+      border: 1px solid $border-color;
+      @media screen and (min-width: 992px) and (max-width: 1199px) {
+        padding: 30px 20px 40px;
+      }
+      @media (max-width: 767px) {
+        padding: 30px 20px 30px;
+        margin-top:0;
+      }
+      @media (max-width: 543px) {
+        padding: 30px 10px 30px;
+      }
+      .quote{
+        width: 60px;
+        position: absolute;
+        right: 10px;
+        top: 15px;
+        text-align: center;
+        fill: $brand-secondary;
+        display: inline-block;
+        vertical-align: middle;
+        transform: rotateY(180deg);
+        @media (max-width: 767px) {
+          display: none;
+        }
+      }
+      .user-description{
+        p{
+          font-size: 14px;
+          line-height: 20px;
+          position: relative;
+          font-weight: 400;
+          margin: 10px 0 0;
+          color: #777777;
+          @media (max-width: 991px) {
+            width: 100%;
+          }
+          @media (max-width: 543px) {
+            margin: 7px 0 0;
+          }
+        }
+      }
+      .testimonial-img {
+        position: absolute;
+        top: 0px;
+        left: 30px;
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+          left: 15px;
+        }
+        @media (max-width: 767px) {
+            margin: 0 auto 20px;
+            position:unset;
+        }
+        img {
+          max-width: 100%;
+          width: auto;
+          @media (max-width: 767px) {
+            text-align: center;
+            margin: 0 auto;
+          }
+        }
+      }
+      .user-content{
+        position: relative;
+        right: 0;
+        left: 0;
+        text-align: left;
+        width: 58%;
+        overflow: hidden;
+        float: right;
+        @media screen and (min-width: 992px) and (max-width: 1199px) {
+          width: 52%;
+        }
+        @media (max-width: 991px) {
+          width: 65%;
+        }
+        @media (max-width: 767px) {
+          width: 100%;
+          text-align:center;
+        }
+      }
+    }
+    .user-name {
+      display: block;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 18px;
+      color: #232323;
+      display: inline-block;
+      vertical-align: middle;
+      font-family: $primary-font;
+    }
+    .user-designation {
+      font-size: 14px;
+      font-weight: 400;
+      color: #888888;  
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .owl-dots {
+      text-align: center;
+      opacity: 1;
+      position: relative;
+      margin-top: 15px;
+      bottom: 0;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -ms-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+      .owl-dot {
+        display: inline-block;
+        img{
+          @media (max-width: 767px) {/* If media is below 544 */
+            width: 70px;
+            height: 70px;
+          }
+          border-radius: 50%;
+          max-width: 100%;
+          width:110px;
+          height: 110px;
+          border-radius: 50%;
+          border: 0 solid $brand-secondary;
+          -ms-transform: scale(.8,.8);
+          -webkit-transform: scale(.8,.8);
+          transform: scale(.8,.8);
+        }
+        span {
+          display: block;
+          width: 10px;
+          margin: 0 2px;
+          height: 10px;
+          border:1px solid $light-color;
+          cursor: pointer;
+          border-radius: 50%;
+          background:$light-color;
+          transition: all 0.5s;
+        }
+        &.active, &:hover {
+          span  {
+            background: $brand-secondary;
+            border:1px solid $brand-secondary;
+          }
+        }
+        &.active {
+          img{
+            -ms-transform: scale(1,1);
+            -webkit-transform: scale(1,1);
+            transform: scale(1,1);
+            border-width: 2px;
+            filter: grayscale(0);
+            transition: all 0.5s ease 0s;
+          }
+          span  {
+            cursor: default;
+          }
+        }     
+      }
+    }
+}
+@keyframes shrink {
+  100% {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9); } }

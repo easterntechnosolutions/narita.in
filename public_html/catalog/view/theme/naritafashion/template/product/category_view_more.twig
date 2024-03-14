@@ -1,0 +1,66 @@
+		{% if display == "list"%}
+			{% set class = "product-list" %}
+			{% set imgclass = "col-xs-12 col-sm-4 col-md-4 col-lg-3" %}
+			{% set captionclass = "col-xs-12 col-sm-8 col-md-8 col-lg-9" %}
+		{% else %}
+			{% set class = "product-grid col-lg-4 col-md-6 col-sm-6 col-xs-12" %}
+			{% set imgclass = "" %}
+			{% set captionclass = "" %}
+		{% endif %}
+			{% if products %}
+      {% for product in products %}
+      <div class="product-layout product-grid col-lg-4 col-md-4 col-sm-6 col-xs-6">
+        <div class="product-container">
+          <div class="product-thumb">
+            <div class="image" data-countdowntime="{{ product.date_end }}">
+              <a href="{{ product.href }}">
+                <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                {% if product.extra != '' %}
+                  <img class="product-img-extra img-responsive" alt="{{ product.name }}" title="{{ product.name }}" src= "{{ product.extra }}"/>
+                {% endif %}
+              </a>    
+               {% if product.stock_status %}<span class="outstock">{{ product.stock_status }}</span>{% endif %} 
+            </div>
+            <div class="product-description"> 
+              <h4><a href="{{ product.href }}">{{ product.name }}</a></h4> 
+              {% if product.price %}
+              <p class="price">
+                {% if not product.special %}
+                {{ product.price }}
+                {% else %}
+                <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>  
+                {% endif %}
+                {% if product.tax %}
+                <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                {% endif %}
+              </p>
+              {% endif %}
+              {% set product_size_options_length = product.product_size_options|length %}
+              {% if product_size_options_length %}
+                <div class="size-details">
+                  <div class="size-title">Size Available:</div>
+                  <div class="size">
+                    {% for option in product.product_size_options %}
+                      <span> {{option.name}}</span>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endif %}
+               <div class="rating">
+                  <div class="product-rating">
+                    {{product.rating}}
+                  </div>
+                  <span class="fa fa-stack">
+                      <i class="fa fa-star fa-stack-2x {% if product.rating  > 0.0%} yellow {% else %} grey {% endif %}"></i>
+                  </span>
+                  <div class="total-review">
+                    ({{product.reviews}} Reviews)
+                  </div>
+              </div> 
+            </div> 
+            {% if product.stock_status %}<span class="outstock-overlay"></span>{% endif %}  
+          </div>
+        </div>
+      </div>
+      {% endfor %} 
+  {% endif %} 

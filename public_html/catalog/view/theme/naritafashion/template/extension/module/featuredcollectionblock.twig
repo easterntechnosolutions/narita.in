@@ -1,0 +1,61 @@
+<section id="{{ ishi_randomnumer }}" class="featuredcollectionblock">
+    <div class="container">
+        <div class="section-header">    
+            <h3 class="home-title">{{ heading }}</h3>
+        </div>
+        <div class="featured-content">
+            <div class="featured-inner">
+                <div class="grid-container">
+                  {% for banner in banners %}  
+                    <div class="featuredcollectionblock-container">
+                      <div class="image-container"> 
+                        <div class="item">
+                            <div class="featured-image">
+                                <a href="{{ banner.categorylink }}">
+                                  <img src="{{ banner.image }}" alt="{{ banner.title }}" class="img-responsive" />
+                                  
+                                  <span class="heading">{{ banner.categorytitle }}</span>
+                                </a>
+                            </div>  
+                        </div>  
+                      </div>   
+                    </div>   
+                  {% endfor %} 
+                </div>
+            </div>
+        </div>
+    </div>
+  <!-- <script type="text/javascript">
+    $('#{{ ishi_randomnumer }} .owl-carousel').owlCarousel({
+        loop:true,
+        nav:true,
+        dots:false,
+        margin:30,
+        navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+        rtl: $('html').attr('dir') == 'rtl'? true : false,    
+        rewind: true,
+        responsive:{
+            0:{
+                items:2,
+                margin:15
+            },
+            501:{
+                items:3,
+                margin:15
+            },
+            544:{
+                items:3
+            },
+            768:{
+                items:3
+            },
+            992:{
+                items:4
+            },
+            1200:{
+                items:4
+            }
+        }
+    });
+  </script> -->
+</section>

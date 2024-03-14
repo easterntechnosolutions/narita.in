@@ -1,0 +1,38 @@
+<section id="{{ random_id }}" class="ishicareerblock">
+	<div class="career">
+	    <div class="career-image col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	        <img src="{{banner1}}" alt="About-Us">
+	        <div class="openings-content">
+	            <div class="openings-title">{{title}}</div>
+	            <div id="openings" class="career-details">
+	                <div class="panel-group" id="accordion">
+						{% set item = 1 %}
+						{% for ishitestimonial in ishitestimonials %}
+						<div class="faqblock-container panel panel-default">
+							<div class="panel-heading"> 
+								<a class="text-container {% if item == 1%} {% else %} collapsed {% endif %}" data-toggle="collapse" data-target="#collapseOne_{{item}}" data-parent="#accordion">
+									<h4>
+										{{ ishitestimonial.username }}
+									</h4>
+								</a>
+							</div>
+							<div id="collapseOne_{{item}}" class="subtitle-container panel-collapse collapse {% if item == 1%}in{% endif %}">
+				                <div class="panel-body">
+				                    {{ ishitestimonial.description }}
+				                </div> 
+				            </div>
+						</div>
+						{% set item = item+1 %}
+						{% endfor %}
+					</div>
+	            </div>    
+	        </div>
+	    </div>
+	    <div class="career-content col-lg-6 col-md-6 col-sm-12 col-xs-12">
+	        <div class="career-title">{{subtitle}}</div>
+	        <div class="career-desc">
+	        	{{ html }}
+	        </div>
+	    </div>
+	</div>
+</section>	

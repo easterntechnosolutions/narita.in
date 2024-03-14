@@ -1,0 +1,351 @@
+
+#information-information{
+    .breadcrumb-container{
+        background: #1B1F22;
+        margin-bottom: 60px;
+        img{
+            background-size: cover;
+            background-position: left;
+        }
+    }    
+    #content{
+        h2{
+            margin-top: 0;
+        }
+        h4{
+            font-size: 17px;
+            font-weight: 700;
+            color: #363636;
+            margin: 20px 0;
+        }
+        b{
+            margin-bottom: 10px;
+            position: relative;
+            display: block;
+            color: #333333;
+            font-size: 15px;
+        }
+        p{
+            font-size: 13px;
+            line-height: 24px;
+            font-weight: 400;
+            color: #363636;
+            width: 85%;
+            @media (max-width: 991px) {
+                width: 100%;
+            }
+        }
+        ul,ol{
+            margin-bottom: 18px;    
+            padding-left: 26px;
+            li{
+                color: #363636;
+                line-height: 24px;
+                font-size: 13px;
+                padding-left: 3px;
+                font-weight: 400;
+            }
+        }
+        blockquote{
+            text-align: left;
+            line-height: 26px;
+            color: #787878;
+            margin-bottom: 0;
+            letter-spacing: .2px;
+            font-weight: 500;
+            font-size: 13px;
+            border-left: 3px solid #e5e5e5;
+            margin-left: 15px;
+            @media (max-width: 991px) {
+                margin-bottom: 15px;
+            }
+            p{
+                font-size: 14px;
+            }
+        }
+        .franchise{
+            .franchise-content{
+                margin-bottom: 70px;
+                .franchise-image{
+                    img{
+                        max-width: 100%;
+                        margin: 0 auto;
+                    }
+                    @media (max-width: 992px) {
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }
+                }
+                .franchise-desc{
+                    p{
+                        font-size: 14px;
+                        font-weight: 400;
+                        color: #363636;
+                        line-height: 22px;
+                        margin-bottom: 30px;
+                        @media (max-width: 1319px) {
+                            width: 100%;
+                            font-size: 13px;
+                            margin-bottom: 25px;
+                        }
+                        @media (max-width: 992px) {
+                            text-align: center;
+                            width: 80%;
+                            margin:0 auto 25px;
+                        }
+                        @media (max-width: 543px) {
+                            width: 100%;
+                        }
+                    }
+                    .btn-default {
+                        display: block;
+                        text-align: center;
+                    }
+                    .franchise-form{
+                        @media (max-width: 992px) {
+                            text-align: center;
+                        }
+                        .franchise-title{
+                            font-size: 28px;
+                            line-height: 28px;
+                            color: #363636;
+                            margin-bottom: 10px;
+                            font-weight: 600;
+                            @media (max-width: 1319px) {
+                                font-size: 24px;
+                                line-height: 26px;
+                            }
+                        }
+                        .franchise-subtitle{
+                            font-size: 13px;
+                            font-weight: 400;
+                            margin-bottom: 30px;
+                        }
+                        .franchise-inner{
+                            @media (max-width: 400px) {
+                                width: 100%;
+                            }
+                        }
+                        .m-r{
+                            margin-right: 20px;
+                        }
+                        .text-email, .number {
+                            border: 0;
+                            border-bottom: 1px solid #eee;
+                            padding: 0;
+                            margin-bottom: 20px;
+                            font-size: 13px;
+                            color: #666;
+                            height: 40px;
+                            width: 48%;
+                            @media (max-width: 1319px) {
+                                width: 46%;
+                            }
+                            &::placeholder {
+                                color:#363636;
+                            }
+                            &:focus-visible {
+                                border-color: #232323;
+                            }
+                        }
+                        #subscribe {
+                            display: inline-block;
+                            vertical-align: middle;
+                        }
+                        a{
+                            display: block;
+                            text-align: center;
+                            cursor: pointer;
+                            margin-top: 10px;
+                            background: #363636;
+                            border-color: #363636;
+                            &:hover{
+                                background:#722e72;
+                                border-color: #722e72;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+.career{
+    .panel-body {
+        border-top: none !important;
+        padding: 0;
+    }
+    .panel-group {
+        .panel {
+            border: none;
+            border-bottom: 1px solid #eee;
+        }
+    } 
+    .panel-heading {
+        background-color: transparent;
+        border: none;
+        padding: 15px 0;
+        h4 {
+            margin: 0 !important;
+        }
+    }
+    .career-image{
+        @media (max-width: 991px) {
+            padding: 0;
+        }
+        img{
+            max-width: 100%;
+        }
+        .openings-content{
+            margin-top: 30px;
+            .career-details{
+                border-top: 2px solid #eee;
+                @media (max-width: 991px) {
+                    margin-bottom: 20px;
+                }
+            }
+            .openings-title{
+                font-size: 26px;
+                line-height: 26px;
+                font-weight: 600;
+                color: #363636;
+                padding-bottom: 15px;
+            }
+
+            .sales-title{
+                a{
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: #363636;
+                    display: block;
+
+                    .plus-icon,.minus-icon{
+                          position: relative;
+                          top: 0px;
+                          font-weight: 400;
+                          line-height: 18px;
+                          float: right;
+                          transition: transform 0.25s linear;
+                          -webkit-transition: -webkit-transform 0.25s linear;
+                          svg{
+                            width: 10px;
+                            height: 10px;
+                          }
+                    }
+
+                    &[aria-expanded="true"] {
+                        .plus-icon{
+                            display: none;
+                        }
+                        .minus-icon{
+                            display: block;
+                        }
+                    }
+
+                    &[aria-expanded="false"] {
+                        .plus-icon{
+                            display: block;
+                        }
+                        .minus-icon{
+                            display: none;
+                        }
+                    } 
+
+                    
+                }
+            }
+            .sales-subtitle{
+                font-size: 14px;
+                font-weight: 600;
+                color: #363636;
+                padding-top: 0px;
+                padding-bottom: 15px;
+                display: block;
+            }
+            ol{
+                padding-left: 20px;
+            }
+            li{
+                font-size: 13px;
+                font-weight: 400;
+                color: #666 !important;
+                margin-bottom: 10px;
+            }
+            .collapse{
+                display: none !important;
+            }
+            .collapse.in{
+                display: block !important;
+            }
+            .sales-data,.account-data{
+                padding: 15px 0;
+                border: 0;
+                border-bottom: 2px solid #eeeeee;
+                margin: 0;
+            }
+        }
+    }
+    .career-content{
+        @media (max-width: 991px) {
+            padding: 0;
+        }
+        .career-title{
+            font-size: 26px;
+            line-height: 26px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #363636;
+        }
+        .career-desc{
+            p{
+                font-size: 13px;
+                line-height: 22px;
+                color: #363636;
+            }
+        }
+    }
+}
+
+.about{
+    .about-content{
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        @media (max-width: 991px) {
+            display: block;
+            text-align: center;
+            overflow: hidden;
+        }
+        &.about1{
+            .about-image{
+                @media (min-width: 992px) {
+                    order: 2;
+                }
+            }
+            .about-desc{
+                @media (min-width: 992px) {
+                    order: 1;
+                }
+            }
+        }
+        .about-image{
+            img{
+                max-width: 100%;
+            }
+            @media (max-width: 991px) {
+                margin-bottom:30px;
+            }
+        }
+        .about-desc{
+            p{
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: 400;
+                color: #363636;
+                width: auto !important;
+            }
+        }
+    }
+}
+

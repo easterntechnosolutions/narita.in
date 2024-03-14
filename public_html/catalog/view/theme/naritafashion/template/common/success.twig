@@ -1,0 +1,19 @@
+{{ header }}
+<div id="common-success" class="container wrapper_container">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6 column_left' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9 column_center' %}
+    {% else %}
+    {% set class = 'col-sm-12 column_full' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      {{ text_message }}
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ back }}" class="btn btn-primary">{{ button_back }}</a></div>
+      </div>
+      {{ content_middle }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}

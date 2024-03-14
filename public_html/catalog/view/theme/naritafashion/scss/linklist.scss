@@ -1,0 +1,23 @@
+.linklist_block{
+  	.linklist-desc{
+  		.text{
+  			margin-bottom: 10px;
+  			a{	
+  				padding-left: 15px;
+				font-weight: 400;
+				letter-spacing: 0.5px;
+				font-size: 13px;
+				color: #363636;
+				line-height: 18px;
+				text-decoration: none;
+				position: relative;
+				word-break: break-all;
+				overflow: hidden;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-o-transition: all 0.5s;
+				transition: all 0.5s;
+  			}
+  		}
+  	}
+}

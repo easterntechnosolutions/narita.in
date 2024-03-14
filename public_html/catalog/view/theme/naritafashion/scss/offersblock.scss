@@ -1,0 +1,58 @@
+.offersblock-inner{
+	overflow: hidden;
+	padding: 30px 30px;
+	display: flex;
+	align-items: center;
+	@media (max-width: 1199px) {
+		padding: 30px 15px;
+	}
+	@media (max-width: 991px) {
+		display:block;
+		text-align: center;
+	}
+	span{
+		font-size: 20px;
+		line-height: 20px;
+		font-weight: 700;
+		color: #363636;
+		width: 77%;
+		@media (max-width: 1199px) {
+			width: 80%;
+			font-size: 17px;
+		}
+		@media (max-width: 543px) {
+			font-size: 15px;
+		}
+		@media (max-width: 400px) {
+			font-size: 14px;
+			line-height:20px;
+		}
+	}
+	.offer-btn{
+		width: 36%;
+		display: inline-block;
+		vertical-align: middle;
+		@media (max-width: 991px) {
+			text-align: center;
+			margin: 20px auto 0;
+			width: auto;
+			display: block;
+		}
+		.offer_code {
+			display: inline-block;
+			cursor:pointer;
+		}
+		.btn-primary{
+			display: inline-block;
+			vertical-align: middle;
+			font-size: 17px;
+			font-weight: 600;
+			@media (max-width: 1199px) {
+				font-size: 14px;
+			}
+			@media (max-width: 991px) {
+				display: inline-block;
+			}
+		}
+	}
+}

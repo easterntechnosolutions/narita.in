@@ -1,0 +1,145 @@
+.owl-nav {
+	text-align: center;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	transition: all 0.5s;
+	.owl-prev, .owl-next {
+		display: inline-block;
+		border: 1px solid #ff406e;
+		background-color: #ff406e;
+		width: 35px;
+		height: 35px;
+		margin: 2px;
+		outline: none;
+		-webkit-transition: all 0.5s;
+		-moz-transition: all 0.5s;
+		-o-transition: all 0.5s;
+		transition: all 0.5s;
+		@media (max-width: 543px) {/* If media is below 544 */
+			width: 32px;
+			height: 32px;
+		}
+		&:hover {
+			background-color: #232323;
+			border-color: #232323;
+			i {
+				&:before {
+					color: $light-color;
+				}
+			}
+		}
+		i {
+			&:before {
+				font-size: 18px;
+				line-height: 33px;
+				color: $light-color;
+				position: relative;
+				text-align: center;
+				font-weight: 600;
+				margin: 0 auto;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+				-o-transition: all 0.5s;
+				transition: all 0.5s;
+				@media (max-width: 543px) {/* If media is below 544 */
+					font-size: 16px;
+					line-height: 30px;
+				}
+			}
+		}
+	}
+	.owl-prev {
+		i{
+			&:before{
+			    margin-right: 2px;
+			}
+		}
+	}
+	.owl-next {
+		@media (min-width: 544px) {/* If media is above 543 */
+			right: 0;
+			left: auto;
+		}
+		i{
+			&:before{
+			    margin-left: 2px;
+			}
+		}
+	}
+}
+
+.owl-dots {
+	.owl-dot {
+		display: inline-block;
+		vertical-align: middle;
+		outline: none;
+		span{
+			width: 12px;
+			height: 12px;
+			border-radius: 50px;
+			background: $brand-secondary;
+			border: 1px solid $brand-secondary;
+			margin: 0 5px;
+			display: block;
+		}
+	  	&.active {
+			span {
+				background: $brand-primary;
+				border-color: $brand-primary;
+			}
+		}
+	}
+	&.ishi-style-dot1 {
+		.owl-dot {
+			span {
+				border-radius: 0;
+			}
+		}
+	}
+	&.ishi-style-dot2 {
+		.owl-dot {
+			span {
+				border-radius: 50%;
+				border: 1px solid $brand-primary;
+				background: $brand-secondary;
+			}
+			&.active{
+				span{
+					border-color:$brand-primary;
+					background: $brand-primary;
+				}
+			}
+		}
+	}
+	&.ishi-style-dot3 {
+		.owl-dot {
+			span {
+				border-radius: 0;
+				transform: rotate(45deg);
+				-ms-transform: rotate(45deg);
+				-webkit-transform: rotate(45deg);
+				-o-transform: rotate(45deg);
+				-moz-transform: rotate(45deg);
+			}
+		}
+	}
+	&.ishi-style-dot4 {
+		.owl-dot {
+			span {
+				width: 25px;
+				height: 5px;
+				border-radius: 0;
+			}
+		}
+	}
+	&.ishi-style-dot5 {
+		.owl-dot {
+			span {
+				width: 25px;
+				height: 6px;
+				border-radius: 5px;
+			}
+		}
+	}
+}

@@ -1,0 +1,67 @@
+<section class="bestsellerblock">
+		<div class="container">    
+        <h3 class="home-title">{{heading_title}}</h3>   
+        <div class="grid-container"> 
+          {% for product in products %}  
+              <div class="item" data-countdowntime="{{ product.date_end }}">
+                <div class="product-thumb">
+                  <div class="image">
+                    <a href="{{ product.href }}">
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" />
+                      {% if product.extra != '' and hover_image == 1 %}
+                        <img class="product-img-extra img-responsive" alt="{{ product.name }}" title="{{ product.name }}" src= "{{ product.extra }}"/>
+                      {% endif %}
+                    </a>
+                    {% if product.discount_percentage %}
+                    <div class="percentage-bg">
+                    </div>    
+                    <span class="percentage-text">{{ product.discount_percentage }}%</span>
+                    {% endif %}
+                    {% if product.stock_status %}<span class="outstock">{{ product.stock_status }}</span>{% endif %}
+                  </div>  
+                  <div class="product-description"> 
+                      <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>    
+                      {% if product.price %}
+                        <p class="price">
+                          {% if not product.special %}
+                          {{ product.price }}
+                          {% else %}
+                          <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>  
+                          {% endif %}
+                          {% if product.tax %}
+                          <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                          {% endif %}
+                        </p>
+                      {% endif %}   
+                      {% set product_size_options_length = product.product_size_options|length %}
+                      {% if product_size_options_length %}
+                        <div class="size-details">
+                          <div class="size-title">Size Available:</div>
+                          <div class="size">
+                            {% for option in product.product_size_options %}
+                              <span> {{option.name}}</span>
+                            {% endfor %}
+                          </div>
+                        </div>
+                      {% endif %}
+                       {% if product.rating != 0 %}
+                      <div class="rating">
+                        <div class="product-rating">
+                          {{product.rating}}
+                        </div>
+                        <span class="fa fa-stack">
+                            <i class="fa fa-star fa-stack-2x {% if product.rating  > 0.0%} yellow {% else %} grey {% endif %}"></i>
+                        </span>
+                        <div class="total-review">
+                          ({{product.reviews}} Reviews)
+                        </div>
+                      </div>    
+                      {% endif %}            
+                    </div>
+                    {% if product.stock_status %}<span class="outstock-overlay"></span>{% endif %}
+                </div>                           
+              </div>
+          {% endfor %}        
+        </div>        
+      </div>
+</section>

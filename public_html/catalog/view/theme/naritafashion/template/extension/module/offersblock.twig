@@ -1,0 +1,38 @@
+<div id="offersblock">
+	<div class="container">
+		<div class="row">
+			<div class="offersblock-inner" style="background: {{ bg_color }};">
+				<div id="typed-strings">
+					{% for offer in offers %} 
+						<p>{{ offer.title }}</p>
+					{% endfor %}
+				</div>
+			 	<span id="typed"></span>
+			 	<div class="offer-btn">
+	                <div class="btn-primary">Use Code : 
+	                <div onclick="copy(this)" class="offer_code">{{btntitle1}}</div>
+	            </div>
+	            </div>
+			</div>
+		</div>		
+ 	</div>
+	<script type="text/javascript">
+		var typed = new Typed('#typed', {
+	      stringsElement: '#typed-strings',
+	      typeSpeed: 90,
+	      backSpeed: 90,
+	      startDelay: 1000,
+	      showCursor: false,
+	      loop: true,
+	    });
+
+	    function copy(that){
+		var inp =document.createElement('input');
+		document.body.appendChild(inp)
+		inp.value =that.textContent
+		inp.select();
+		document.execCommand('copy',false);
+		inp.remove();
+		}
+	</script>
+</div>

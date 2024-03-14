@@ -1,0 +1,309 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit" form="form-module" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+          <div class="tab-pane" id="tab-design">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab-general" data-toggle="tab">{{ tab_general }}</a></li>
+          <li><a href="#tab-banner" data-toggle="tab">{{ entry_banner }}</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab-general">
+
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-name">{{ entry_name }}</label>
+            <div class="col-sm-10">
+              <input type="text" name="name" value="{{ name }}" placeholder="{{ entry_name }}" id="input-name" class="form-control" />
+              {% if error_name %}
+              <div class="text-danger">{{ error_name }}</div>
+              {% endif %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-title">{{ entry_title }}</label>
+            <div class="col-sm-10">
+            {% for language in languages %}
+              <div class="input-group"><span class="input-group-addon"><img src="language/{{ language.code }}/{{ language.code }}.png" title="{{ language.name }}" /></span>
+                <input type="text" name="title[{{ language.language_id }}]" value="{{ title[language.language_id] }}" placeholder="{{ entry_title }}" class="form-control" required id="input-title-{{language.language_id}}" />
+              </div> 
+            {% endfor %}
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label" for="input-status">{{ entry_status }}</label>
+            <div class="col-sm-10">
+              <select name="status" id="input-status" class="form-control">
+                {% if status %}
+                <option value="1" selected="selected">{{ text_enabled }}</option>
+                <option value="0">{{ text_disabled }}</option>
+                {% else %}
+                <option value="1">{{ text_enabled }}</option>
+                <option value="0" selected="selected">{{ text_disabled }}</option>
+                {% endif %}
+              </select>
+            </div>
+          </div>
+          </div>
+          <div class="tab-pane" id="tab-banner">
+              <h2>Banner 1</h2>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-image-1">{{entry_image}}</label>
+                  <div class="col-sm-10">
+                  <a href="" id="thumb-image-1" data-toggle="image" class="img-thumbnail"><img src="{{ ishi_banner1_thumb }}" alt="" title="" data-placeholder="{{ ishi_banner1_placeholder }}" /></a>
+                  <input type="hidden" name="ishi_banner1_image" value="{{ ishi_banner1_image }}" id="input-image-1" />
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-title-1">{{ entry_title }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="ishi_banner1_title" value="{{ ishi_banner1_title }}" placeholder="{{ entry_title }}" class="form-control" id="input-title-1"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-btn-1">{{ entry_btn }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="ishi_banner1_btn" value="{{ ishi_banner1_btn }}" placeholder="{{ entry_btn }}" class="form-control" id="input-btn-1"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name">{{ entry_category1 }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="category_label1" value="{{ category_label1 }}" placeholder="{{ entry_category1 }}" id="input-category_label1" class="form-control category-selector" />
+                      <input type="hidden" name="category1" value="{{ category1 }}"/>
+                      {% if error_category1 %}
+                      <div class="text-danger">{{ error_category1 }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+              <h2>Banner 2</h2>
+                  <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-image-2">{{entry_image}}</label>
+                  <div class="col-sm-10">
+                  <a href="" id="thumb-image-2" data-toggle="image" class="img-thumbnail"><img src="{{ ishi_banner2_thumb }}" alt="" title="" data-placeholder="{{ ishi_banner2_placeholder }}" /></a>
+                  <input type="hidden" name="ishi_banner2_image" value="{{ ishi_banner2_image }}" id="input-image-2" />
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-title-2">{{ entry_title }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="ishi_banner2_title" value="{{ ishi_banner2_title }}" placeholder="{{ entry_title }}" class="form-control" id="input-title-2"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name">{{ entry_category1 }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="category_label2" value="{{ category_label2 }}" placeholder="{{ entry_category1 }}" id="input-category_label2" class="form-control category-selector" />
+                      <input type="hidden" name="category2" value="{{ category2 }}"/>
+                      {% if error_category1 %}
+                      <div class="text-danger">{{ error_category1 }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+              <h2>Banner 3</h2>
+              <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-image-3">{{entry_image}}</label>
+                  <div class="col-sm-10">
+                  <a href="" id="thumb-image-3" data-toggle="image" class="img-thumbnail"><img src="{{ ishi_banner3_thumb }}" alt="" title="" data-placeholder="{{ ishi_banner3_placeholder }}" /></a>
+                  <input type="hidden" name="ishi_banner3_image" value="{{ ishi_banner3_image }}" id="input-image-3" />
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-title-3">{{ entry_title }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="ishi_banner3_title" value="{{ ishi_banner3_title }}" placeholder="{{ entry_title }}" class="form-control" id="input-title-3"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name">{{ entry_category1 }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="category_label3" value="{{ category_label3 }}" placeholder="{{ entry_category1 }}" id="input-category_label3" class="form-control category-selector" />
+                      <input type="hidden" name="category3" value="{{ category3 }}"/>
+                      {% if error_category1 %}
+                      <div class="text-danger">{{ error_category1 }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+              <h2>Banner 4</h2>
+              <div class="form-group">
+                  <label class="col-sm-2 control-label" for="input-image-4">{{entry_image}}</label>
+                  <div class="col-sm-10">
+                  <a href="" id="thumb-image-4" data-toggle="image" class="img-thumbnail"><img src="{{ ishi_banner4_thumb }}" alt="" title="" data-placeholder="{{ ishi_banner4_placeholder }}" /></a>
+                  <input type="hidden" name="ishi_banner4_image" value="{{ ishi_banner4_image }}" id="input-image-4" />
+                  </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-title-4">{{ entry_title }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="ishi_banner4_title" value="{{ ishi_banner4_title }}" placeholder="{{ entry_title }}" class="form-control" id="input-title-4"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name">{{ entry_category1 }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="category_label4" value="{{ category_label4 }}" placeholder="{{ entry_category1 }}" id="input-category_label4" class="form-control category-selector" />
+                      <input type="hidden" name="category4" value="{{ category4 }}"/>
+                      {% if error_category1 %}
+                      <div class="text-danger">{{ error_category1 }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <h2>Banner 5</h2>
+                  <div class="form-group">
+                     <label class="col-sm-2 control-label" for="input-image-5">{{entry_image}}</label>
+                        <div class="col-sm-10">
+                            <a href="" id="thumb-image-5" data-toggle="image" class="img-thumbnail"><img src="{{ ishi_banner5_thumb }}" alt="" title="" data-placeholder="{{ ishi_banner5_placeholder }}" /></a>
+                           <input type="hidden" name="ishi_banner5_image" value="{{ ishi_banner5_image }}" id="input-image-5" />
+                        </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-title-5">{{ entry_title }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="ishi_banner5_title" value="{{ ishi_banner5_title }}" placeholder="{{ entry_title }}" class="form-control" id="input-title-5"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label" for="input-name">{{ entry_category1 }}</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="category_label5" value="{{ category_label5 }}" placeholder="{{ entry_category1 }}" id="input-category_label5" class="form-control category-selector" />
+                      <input type="hidden" name="category5" value="{{ category5 }}"/>
+                      {% if error_category1 %}
+                      <div class="text-danger">{{ error_category1 }}</div>
+                      {% endif %}
+                    </div>
+                  </div>
+            </div>
+          </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+  $(document).on("focus",".category-selector", function(e) {
+      $(this).autocomplete({
+    'source': function(request, response) {
+      $.ajax({
+        url: 'index.php?route=catalog/category/autocomplete&user_token={{ user_token }}&filter_name=' +  encodeURIComponent(request),
+        dataType: 'json',
+        success: function(json) {
+          response($.map(json, function(item) {
+            return {
+              label: item['name'],
+              value: item['category_id']
+            }
+          }));
+        }
+      });
+    },
+    'select': function(item) {      
+      $(this).val(item['label']);
+      $(this).siblings("input[type=hidden]").val(item['value']);
+      $("ul.dropdown-menu").remove();
+    }
+  });
+  });
+</script>
+<style>
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+input.default:checked + .slider {
+  background-color: #444;
+}
+input.primary:checked + .slider {
+  background-color: #2196F3;
+}
+input.success:checked + .slider {
+  background-color: #8bc34a;
+}
+input.info:checked + .slider {
+  background-color: #3de0f5;
+}
+input.warning:checked + .slider {
+  background-color: #FFC107;
+}
+input.danger:checked + .slider {
+  background-color: #f44336;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+<script type="text/javascript">
+$('#bannerstab a:first').tab('show');
+</script>
+{{ footer }}
